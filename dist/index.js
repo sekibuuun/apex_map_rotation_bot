@@ -35,11 +35,10 @@ client.once('ready', () => {
         console.log(client.user.tag);
     }
 });
-//!timeと入力すると現在時刻を返信するように
 client.on('messageCreate', (message) => __awaiter(void 0, void 0, void 0, function* () {
     if (message.author.bot)
         return;
-    if (message.content === '!time') {
+    if (client.user && message.mentions.users.has(client.user.id)) {
         const date1 = new Date();
         message.channel.send(date1.toLocaleString());
     }

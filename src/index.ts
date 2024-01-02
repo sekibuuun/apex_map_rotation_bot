@@ -25,10 +25,9 @@ client.once('ready', () => {
     }
 })
 
-//!timeと入力すると現在時刻を返信するように
 client.on('messageCreate', async (message: Message) => {
     if (message.author.bot) return
-    if (message.content === '!time') {
+    if (client.user && message.mentions.users.has(client.user.id)) {
         const date1 = new Date();
         message.channel.send(date1.toLocaleString());
     }
