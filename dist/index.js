@@ -15,8 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //必要なパッケージをインポートする
 const discord_js_1 = require("discord.js");
 const dotenv_1 = __importDefault(require("dotenv"));
+const node_fetch_1 = __importDefault(require("node-fetch"));
 //.envファイルを読み込む
 dotenv_1.default.config();
+const url_map = `https://api.mozambiquehe.re/maprotation?auth=${process.env.APEX_API_KEY}&version=2`;
 //Botで使うGatewayIntents、partials
 const client = new discord_js_1.Client({
     intents: [
@@ -28,6 +30,16 @@ const client = new discord_js_1.Client({
     ],
     partials: [discord_js_1.Partials.Message, discord_js_1.Partials.Channel],
 });
+function getMapRotation(request) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield (0, node_fetch_1.default)(request.url, request.options)
+            .then((res) => res.json())
+            .then((json) => JSON.stringify(json))
+            .catch((err) => {
+            throw new Error(err);
+        });
+    });
+}
 //Botがきちんと起動したか確認
 client.once('ready', () => {
     console.log('Ready!');
@@ -39,8 +51,11 @@ client.on('messageCreate', (message) => __awaiter(void 0, void 0, void 0, functi
     if (message.author.bot)
         return;
     if (client.user && message.mentions.users.has(client.user.id)) {
-        const date1 = new Date();
-        message.channel.send(date1.toLocaleString());
+        const data = yield getMapRotation({
+            url: url_map,
+            options: {},
+        });
+        console.log(data);
     }
 }));
 //ボット作成時のトークンでDiscordと接続
