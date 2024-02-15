@@ -16,3 +16,6 @@ bot をメンションするだけで、以下の内容が分かります
 - TypeScript
 - biome
 - zeabur
+
+## 記事
+[こちら](https://qiita.com/Sekibuuun/items/256a02b88c9821a7a916) に詳細が書いてあります
