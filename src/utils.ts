@@ -3,7 +3,7 @@ import { FetchRequest, Ranked } from './types'
 
 export const mapTranslations = new Map<string, string>([
   ['Kings Canyon', 'キングスキャニオン'],
-  ['Worlds Edge', 'ワールズエッジ'],
+  ['World\'s Edge', 'ワールズエッジ'],
   ['Olympus', 'オリンパス'],
   ['Storm Point', 'ストームポイント'],
   ['Broken Moon', 'ブロークンムーン'],

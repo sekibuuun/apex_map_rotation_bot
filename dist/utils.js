@@ -16,7 +16,7 @@ exports.judgeMap = exports.getMapRotation = exports.mapTranslations = void 0;
 const node_fetch_1 = __importDefault(require("node-fetch"));
 exports.mapTranslations = new Map([
     ['Kings Canyon', 'キングスキャニオン'],
-    ['Worlds Edge', 'ワールズエッジ'],
+    ['World\'s Edge', 'ワールズエッジ'],
     ['Olympus', 'オリンパス'],
     ['Storm Point', 'ストームポイント'],
     ['Broken Moon', 'ブロークンムーン'],
